@@ -4,19 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fullscreen Carousel with Sidebar</title>
-  <!-- Bootstrap CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    /* Make main content fill the entire screen */
+   
     .carousel-inner {
-      height: 100vh; /* Full viewport height */
+      height: 100vh; 
     }
     .sidebar-images {
-      height: 100vh; /* Full viewport height */
+      height: 100vh; 
     }
     .sidebar-images img {
-      height: 32vh; /* One-third of viewport height */
+      height: 32vh; 
       object-fit: cover;
     }
   </style>
@@ -24,24 +23,24 @@
 <body>
   <div class="container-fluid">
     <div class="row">
-      <!-- Sidebar Images -->
+
       <div class="col-3 d-flex flex-column gap-3 sidebar-images">
         <img src="img/img1.jpg" alt="Vertical image 1" class="img-fluid">
         <img src="img/img2.jpg" alt="Vertical image 2" class="img-fluid">
         <img src="img/img3.jpg" alt="Vertical image 3" class="img-fluid">
       </div>
 
-      <!-- Main Carousel -->
+   
       <div class="col-9">
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-          <!-- Carousel Indicators -->
+     
           <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
           </div>
 
-          <!-- Carousel Images -->
+      
           <div class="carousel-inner">
             <div class="carousel-item active">
               <img src="img/img1.jpg" class="d-block w-100 h-100 object-cover" alt="Slideshow image 1">
@@ -54,7 +53,7 @@
             </div>
           </div>
 
-          <!-- Carousel Controls -->
+        
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
@@ -68,7 +67,7 @@
     </div>
   </div>
 
-  <!-- Bootstrap JS Bundle with Popper -->
+ 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
