@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fullscreen Carousel with Sidebar</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Make main content fill the entire screen */
+    .carousel-inner {
+      height: 100vh; /* Full viewport height */
+    }
+    .sidebar-images {
+      height: 100vh; /* Full viewport height */
+    }
+    .sidebar-images img {
+      height: 32vh; /* One-third of viewport height */
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar Images -->
+      <div class="col-3 d-flex flex-column gap-3 sidebar-images">
+        <img src="https://storage.googleapis.com/a1aa/image/3ebtYg64LI07DKnaIamLoRDQcoQ5zA8he3V09v3XwSSt7LsTA.jpg" alt="Vertical image 1" class="img-fluid">
+        <img src="https://storage.googleapis.com/a1aa/image/zeWi7GrIWYyeW0wFeUC5WXc6yeeyk0nwZg1zG0PUszXHeeF2JA.jpg" alt="Vertical image 2" class="img-fluid">
+        <img src="https://storage.googleapis.com/a1aa/image/fNDT4pvBUN2JF6SqfC6ieEIXtw1DRWqMQ8lk193FYVMS3XYnA.jpg" alt="Vertical image 3" class="img-fluid">
+      </div>
+
+      <!-- Main Carousel -->
+      <div class="col-9">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <!-- Carousel Indicators -->
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+
+          <!-- Carousel Images -->
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="https://storage.googleapis.com/a1aa/image/fh6pYpQXWT2wS647vobYlYInyhiPs8wY9Qe7eB3U4MftuvwOB.jpg" class="d-block w-100 h-100 object-cover" alt="Slideshow image 1">
+            </div>
+            <div class="carousel-item">
+              <img src="https://storage.googleapis.com/a1aa/image/l9UBfshekprS7Uym5VXYauphhvkMCuTjWzHEebIYcDpfuvwOB.jpg" class="d-block w-100 h-100 object-cover" alt="Slideshow image 2">
+            </div>
+            <div class="carousel-item">
+              <img src="https://storage.googleapis.com/a1aa/image/DmPMUKIcSJL0BBYIJEkT61L5I780mPMrDeedeOiJZeOyuvwOB.jpg" class="d-block w-100 h-100 object-cover" alt="Slideshow image 3">
+            </div>
+          </div>
+
+          <!-- Carousel Controls -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
