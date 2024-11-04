@@ -13,35 +13,36 @@
     }
     .sidebar-images {
       height: 100vh;
-      overflow: hidden; /* Hide overflow for scroll effect */
-      position: relative; /* Container position */
+      overflow: hidden;
       display: flex;
       flex-direction: column;
-      gap: 3px; /* Space between images */
+      position: relative;
+      padding: 0 5px;
     }
+    /* Top image with fade-in effect */
     .fixed-image {
       height: 32vh;
-	  top : -32vh;
       object-fit: cover;
-      position: relative; /* Ensure it stays in place */
-      z-index: 2; /* Ensure it's above scrolling images */
+      z-index: 2;
+      position: relative;
     }
-	
-	 .fixed-image-block {
+    /* Image below with slight overlap */
+    .fixed-image-block {
       height: 32vh;
-
-	  top : 32vh;
-      z-index: 1; /* Ensure it's above scrolling images */
+      object-fit: cover;
+      margin-top: -230px; /* Overlap effect */
+      z-index: 1;
+      position: relative;
     }
+    /* Scrolling images below */
     .scroll-container {
-      position: absolute; /* Position absolutely within the container */
-      top: 32vh; /* Start below the top image */
+      position: absolute;
+      top: 32vh; /* Starts below the fixed images */
       width: 100%;
-      height: 64vh; /* Space for the two scrolling images */
       display: flex;
       flex-direction: column;
-      transition: transform 1s ease; /* Smooth scrolling effect */
-      z-index: 0; /* Place below the top image */
+      gap: 5px; /* Space between scrolling images */
+      transition: transform 1s ease;
     }
     .scroll-container img {
       height: 32vh;
@@ -66,21 +67,23 @@
   <div class="container-fluid">
     <div class="row">
       <!-- Sidebar Images with animated image on top -->
-      <div class="col-3 sidebar-images" style="padding-left: 2px; padding-right:2px">
-        <!-- Gambar Kiri Atas with fade-in animation, fixed position -->
-        <img src="img/img-w.jpg" class="img-fluid fixed-image-block">
+      <div class="col-3 sidebar-images">
+        <!-- Top Image with fade-in animation -->
         <img id="top-left-image" src="img/img1.jpg" alt="Fixed Top Image" class="img-fluid fixed-image fade-in">
         
-        <!-- Scrolling images -->
-        <div id="scrollContainer" class="scroll-container" style="padding-left: 2px; padding-right:4px; padding-top:20px;">
+        <!-- Image below with slight overlap -->
+        <img src="img/img-w.jpg" class="img-fluid fixed-image-block">
+        
+        <!-- Scrolling images below the overlapped images -->
+        <div id="scrollContainer" class="scroll-container">
           <img src="img/img2.jpg" alt="Vertical image 2" class="img-fluid">
-          <img src="img/img3.jpg" alt="Vertical image 3" class="img-fluid" style="padding-top:20px;">
-          <img src="img/img2.jpg" alt="Vertical image 3" class="img-fluid" style="padding-top:20px;">
+          <img src="img/img3.jpg" alt="Vertical image 3" class="img-fluid">
+          <img src="img/img2.jpg" alt="Vertical image 4" class="img-fluid">
         </div>
       </div>
 
       <!-- Main Carousel -->
-      <div class="col-9" style="padding-left: 3px; padding-right:2px">
+      <div class="col-9" style="padding-left: 5px; padding-right:5px;">
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -121,13 +124,12 @@
   <script>
     const scrollContainer = document.getElementById("scrollContainer");
     let scrollPosition = 0;
-    const imageHeight = 35; // height in vh for each image
+    const imageHeight = 35;
 
     setInterval(() => {
-      // Toggle between 0vh and -32vh for the scroll effect
       scrollPosition = (scrollPosition === 0) ? -imageHeight : 0;
       scrollContainer.style.transform = `translateY(${scrollPosition}vh)`;
-    }, 3000); // Change every 3 seconds
+    }, 3000);
   </script>
     <script>
     const images = ["img/img1.jpg", "img/img2.jpg", "img/img3.jpg"];
@@ -137,14 +139,10 @@
     setInterval(() => {
       currentImageIndex = (currentImageIndex + 1) % images.length;
       topLeftImage.classList.remove("fade-in");
-      
-      // Trigger reflow to restart animation
       void topLeftImage.offsetWidth;
-      
-      // Change the image source and add fade-in class
       topLeftImage.src = images[currentImageIndex];
       topLeftImage.classList.add("fade-in");
-    }, 3000); // Change image every 3 seconds
+    }, 3000);
   </script>
 </body>
 </html>
